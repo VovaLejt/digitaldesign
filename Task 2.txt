@@ -1,0 +1,27 @@
+function getDayInfo(date) {
+    
+  var rightDate = date.split('.',3);
+  rightDate = [rightDate[1],rightDate[0],rightDate[2]];
+  var newDate = new Date(rightDate);
+  
+  var year = newDate.getFullYear();
+  var month = newDate.getMonth();
+  var day = newDate.getDate();
+  var dayOfWeek = newDate.getDay();
+  var arrDayOfWeek = ['Воскресенье','Понедельник','Вторник','Среда','Четверг','Пятница','Суббота'];
+  var arrMonth = ['Января','Февраля','Марта','Апреля','Мая','Июня','Июля','Августа','Сентября'
+  ,'Октября','Ноября','Декабря'];
+  
+  var weekNumber = 0;
+  if (day <= 7) weekNumber = 1
+  else if (day <= 14) weekNumber = 2
+  else if (day <= 21) weekNumber = 3
+  else if (day <= 28) weekNumber = 4
+  else if (day <= 31) weekNumber = 5
+  else  return {
+      error: true,
+      message: 'неверное число'
+    }
+  
+  console.log(arrDayOfWeek[dayOfWeek] + ', ' + weekNumber + ' неделя ' + arrMonth[month] + ' ' + year + " года");
+}
